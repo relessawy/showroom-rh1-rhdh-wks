@@ -68,7 +68,7 @@ NOTE: The objective here is to create a repository under your **GitHub Organizat
 
 ==== Step 2: Setup GitHub Integration
 
-**You**: "To automatically discover components in **GitHub** and import them into the **RHDH Catalog**, we need to set up **GitHub** Integration in the `app-config-rhdh` **ConfigMap** that we created previously. Add the following YAML configuration at the same indentation level as ‘auth’:
+**You**: "To automatically discover components in **GitHub** and import them into the **RHDH Catalog**, we need to set up **GitHub** Integration in the `app-config-rhdh` **ConfigMap** that we created previously. Add the following YAML configuration after ’signInPage’ and at the same indentation level:
  
 ```yaml
 integrations:
@@ -112,10 +112,72 @@ catalog:
           timeout:
             minutes: 15
 ```
+**You**: "Save the file."
 
 NOTE: Pay close attention to the indentation. YAML files are very sensitive to indentation, and one wrong space can cause RHDH to fail to start.
 
-**You**: "Save the file."
+**You**: "The `app-config-rhdh`  should now look like this:"
+
+```yaml
+app:
+  title: Red Hat Developer Hub
+  baseUrl: <Your Route>
+backend:
+  auth:
+    keys:
+      - secret: "${BACKEND_SECRET}"
+  baseUrl: <Your Route>
+  cors:
+    origin: <Your Route>
+auth:
+  environment: production
+  providers:
+    github:
+      production:
+        clientId: "${GITHUB_APP_CLIENT_ID}"
+        clientSecret: "${GITHUB_APP_CLIENT_SECRET}"
+signInPage: github
+integrations:
+  github:
+    - host: github.com
+      apps:
+        - appId: ${GITHUB_APP_ID}
+          clientId: ${GITHUB_APP_CLIENT_ID}
+          clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+          webhookUrl: ${GITHUB_APP_WEBHOOK_URL}
+          webhookSecret: ${GITHUB_APP_WEBHOOK_SECRET}
+          privateKey: |
+            ${GITHUB_APP_PRIVATE_KEY_FILE}
+catalog:
+  providers:
+    rules:
+      - allow: [Component, System, API, Template, Location, Resource, User, Group, Domain]
+    github:
+      providerId:
+        organization: "${GITHUB_ORGANIZATION}"
+        catalogPath: 'catalog-info.yaml'
+        filters:
+          branch: 'main'
+          repository: '.*'
+        schedule:
+          frequency:
+            minutes: 30
+          initialDelay:
+            seconds: 15
+          timeout:
+            minutes: 15
+    githubOrg:
+      - id: github
+        githubUrl: "${GITHUB_HOST_DOMAIN}"
+        orgs: [ "${GITHUB_ORGANIZATION}" ]
+        schedule:
+          frequency:
+            minutes: 30
+          initialDelay:
+            seconds: 15
+          timeout:
+            minutes: 15    
+```
 
 ==== Step 3: Update the `rhdh_secrets` Secret
 
@@ -133,9 +195,15 @@ export GITHUB_ORGANIZATION=<Your GitHub Organization Name>
 export GITHUB_ORG_URL=$GITHUB_HOST_DOMAIN/$GITHUB_ORGANIZATION
 export GITHUB_APP_ID=<Your GitHub App ID>
 export GITHUB_APP_PRIVATE_KEY_FILE="$(< private_key_file.pem)" #Replace with the name of the pem file you downloaded earlier
-export GITHUB_APP_WEBHOOK_URL=<Your RHDH Route URL>
+export GITHUB_APP_WEBHOOK_URL="https://$(oc get route backstage-rhdh -n rhdh -o jsonpath='{.spec.host}')/"
 export GITHUB_APP_WEBHOOK_SECRET=7opS3cr3tK3y
 ```
+
+
+NOTE: You only need to replace two values in the above script. The first is the `<Your GitHub Organization Name>` and the other is `private_key_file.pem`. 
+
+WARNING: Do not remove the input redirection operator (<) in the command `export GITHUB_APP_PRIVATE_KEY_FILE="$(< private_key_file.pem)"`.  If your file name was `rhdh-app-team0.2024-08-03.private-key.pem`, then the command should look like this: 
+`export GITHUB_APP_PRIVATE_KEY_FILE="$(< rhdh-app-team0.2024-08-03.private-key.pem)"`. Make sure to run the `env.sh` script from the same directory that contains your `.pem` file.
 
 [start=4]
 . **Source the `env.sh` file to export the environment variables:**
@@ -218,6 +286,6 @@ NOTE: 'N' will depend on the number of repositories in your organization. If you
 
 * **You**: "Look, **Homer**! The new components have been successfully imported into the catalog. And also if you filter by users, you will find that the users you invited to your **GitHub Organization** have been also imported into the Catalog. It's all set up now."
 
-* Once done, let the moderators know by sharing this message on the slack channel: "<Your Team Name> completed challenge 3, please review." 
+* You are done with Challenge 3. Let the moderators know by sharing this message on the slack channel: "<Your Team Name> completed challenge 3, please review." 
 
 

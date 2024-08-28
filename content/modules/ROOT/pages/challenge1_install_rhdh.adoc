@@ -63,6 +63,6 @@ image::rhdh_authentication.png[]
 * **You**: "You'll see two options on the authentication page: one is to use **GitHub** and the other is to use a **Guest** account."
 * **You**: "The Guest account is is highly not desired by **Globex Corp** as they want only authorized users to access the **Red Hat Developer Hub**. In the next challenge, we will remove the **Guest** account option and configure authentication and integration with **Github**."
 
-* Once done, let the moderators know by sharing this message on the slack channel: "<Your Team Name> completed challenge 1, please review."
+* You are done with Challenge 1. Let let the moderators know by sharing this message on the slack channel: "<Your Team Name> completed challenge 1, please review."
 
 '''

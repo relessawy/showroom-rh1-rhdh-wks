@@ -101,13 +101,13 @@ TIP: Here are some input examples for inspiration: https://backstage.io/docs/fea
 
 === Task 2: Create your own template
 
-* **You**: "Now apply what you've learned to craft a **Software Template** that creates and registers a new component in the **RHDH Catalog**. The template designed to facilitate the rapid setup of Single Page Applications (SPAs) using React and Next.js."
+* **You**: "Now apply what you've learned to craft a **Software Template** that creates and registers a new component in the **RHDH Catalog**. The template is designed to facilitate the rapid setup of Single Page Applications (SPAs) using React and Next.js."
 * **You**: "Here are the four sections of this template, but some of them are incomplete. Your challenge is to fill in these incomplete parts, drawing upon your learning  today."
 * **You**: "There are two missing parameters:"
 . **description** with the title **Description** and a type of **string**.
 . **owner** with the title **Owner** and a type of **string**. Use **OwnerPicker** field here and filter by kind **Group**.
 
-* **You**: "Also, one final step is missing which the action needed to register the component to the catalog."
+* **You**: "Also, one final step is missing which is the action needed to register the component to the catalog."
 
 ```yaml
 apiVersion: scaffolder.backstage.io/v1beta3

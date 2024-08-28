@@ -2,7 +2,7 @@
 
 * **Hank Scorpio**: "Having this guest access does not work for me, I need you to set up proper authentication worthy of the **Globex Corp**!”
 
-* **You**: "Not to worry. **The Red Hat Developer Hub (RHDH)** relies on Authentication Providers to manage access. These providers help us retrieve identity and user details, enabling us to assign specific access rights across different services within **RHDH**. **RHDH** is compatible with several well-known authentication providers, including **GitHub**, **GitLab**, **Auth0**, and **Okta**. 
+* **You**: "Not to worry. **The Red Hat Developer Hub (RHDH)** relies on Authentication Providers to manage access. These providers help us retrieve identity and user details, enabling us to assign specific access rights across different services within **RHDH**. **RHDH** is compatible with several well-known authentication providers, including **GitHub**, **GitLab**, **Auth0**, **Okta** and more. 
 
 * **You**: "**Homer**, let’s go ahead and set up authentication using **GitHub**. Configuring **GitHub** for **RHDH** authentication involves two steps:""
 
@@ -105,12 +105,14 @@ data:
      providers:
        github:
          production:
-           clientId: ${GITHUB_APP_CLIENT_ID}
-           clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+           clientId: "${GITHUB_APP_CLIENT_ID}"
+           clientSecret: "${GITHUB_APP_CLIENT_SECRET}"
    signInPage: github
 ----
 
 * **You**: "Where it says `<your RHDH route>`, replace it with your **Red Hat Developer Hub** route. You will need to make this replacement in three places. After making these changes, click the **Create** button."
+
+NOTE: The format of the route should be similar to this example `https://backstage-rhdh-rhdh.apps.cluster-64w6b.64w6b.sandbox1459.opentlc.com/` including the trailing slash (/) at the end.
 
 ==== Step 2: Create the Backend Secret
 
@@ -187,6 +189,11 @@ image::rhdh_github_authentication.png[]
 
 image::rhdh_homepage.png[]
 
-* Once done, let the moderators know by sharing this message on the slack channel: "<Your Team Name> completed challenge 2, please review."
+* **You**: "Now, click on ‘Settings’ in the bottom of the right menu and then click on the ‘Authentication Providers’ tab. Grab a screenshot of this page."
+
+image::authentication_providers.png[]
+
+* You are done with Challenge 2. Let the moderators know by sharing this message on the Slack channel: "<Your Team Name> completed challenge 2, please review." Attach the screenshot with your message.
+
 '''
 
