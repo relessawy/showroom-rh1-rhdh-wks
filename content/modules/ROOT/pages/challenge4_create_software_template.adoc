@@ -69,7 +69,9 @@ image::template_log.png[]
 
 * **You**: "In our *Hello World* template, we've defined a step called *log-message*, which uses the action *debug:log* to display a message. This action simply logs a message based on the parameters provided by the user."
 
-* **You**: "To see the available actions in **RHDH** and understand their usage, you can go to the 'Create Content' page by selecting 'Create' from the left sidebar menu. Then, open the Kebab menu at the top right of the 'Create Content' page and choose 'Installed Actions'. Here you can search for 'debug:log' to learn more about this action, including viewing some examples."
+* **You**: "To see the available actions in **RHDH** and understand their usage, you can go to the 'Software Templates
+' page by selecting 'Create' from the left sidebar menu. Then, open the Kebab menu at the top right of the 'Software Templates
+' page and choose 'Installed Actions'. Here you can search for 'debug:log' to learn more about this action, including viewing some examples."
 
 * **You**: "Finally, the *Output* section, though optional, allows you to display results to the user or use the output from executing actions. In our *Hello World* template, we are simply displaying the input that the user provided. It's a straightforward way to provide immediate feedback about what was entered and processed."
 
@@ -183,6 +185,15 @@ spec:
 * **You**: "Once you register the template, click **Create** from the left navigation menu and then click **Choose** on the template itself. Now you can run the template to test it."
 
 image::new_template.png[]
+
+* **You**: "In the first template form, provide a name for your application and select frontend-team from the Owner drop-down field"
+
+
+images::template_first_form.png[]
+
+* **You**: "Then in the second template form enter the name of your GitHub Organization in the Owner field, and a name in the Repository field."
+
+images::template_second_form.png[]
 
 * **You**: "Once the template is executed, you can click on the **View Source** link to validate that a repository was published to your GitHub Organization."
 
