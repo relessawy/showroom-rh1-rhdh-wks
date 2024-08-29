@@ -1,10 +1,12 @@
-= Introduction to the Red Hat Developer Hub Technical Hackathon 
+= {lab_name}
 :toc:
 :toc-placement: preamble
 :sectnums:
 :icons: font
 
-== Overview
+== Introduction to the Red Hat Developer Hub Technical Hackathon 
+
+=== Overview
 
 Welcome to the **Red Hat Developer Hub Enablement Day Hackathon**! Today, you and your team of Red Hat experts are tasked with supporting one of our valued customers, **Globex Corp**. The objective of this Proof of Concept (PoC) is to enable **Globex Corp** to setup **Red Hat Developer Hub (RHDH)** and utilise it's powerful capabilities. 
 
@@ -12,19 +14,13 @@ To make this even more interesting, you’ll be collaborating with two personas 
 
 image::globex-corp.png[]
 
-=== Challenges 
-
 The Hackathon is broken down into challenges:
 
 * **Challenge 1**: Install the Red Hat Developer Hub. (10 points)
 * **Challenge 2**: Setup Authentication. (20 Points)
-* **Challenge 3**: Populating the Catalog. (20 Points)
+* **Challenge 3**: Populating the Catalog. (30 Points)
 * **Challenge 4**: Creating your First Software Template. (40 Points)
-* **Challenge 5**: Setup Role Base Access Control. (10 points)
-
-=== Hints
-
-* You can ask the moderators for hints to get through a challenge, but it will cost you points.
+* **Challenge 5**: Setup Role Base Access Control. (Bonus)
 
 === Prerequisites 
 
