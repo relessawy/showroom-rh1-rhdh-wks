@@ -1,4 +1,4 @@
-== Challenge 5 (Bonus): Setup Role Base Access Control
+== Challenge 5: Setup Role Base Access Control
 
 
 * **Hank Scorpio**: "Team it's crucial that not everyone has the same level of access to our catalog. We need to ensure that only authorized users can perform specific actions within the **Red Hat Developer Hub (RHDH)**."
