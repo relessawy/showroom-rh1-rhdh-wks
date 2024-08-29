@@ -17,9 +17,16 @@
 
 image::homer_donuts.png[]
 
-* **You**: “Focus, Homer. We’ll stick with the name **rhdh**. Navigate to the OpenShift Console and login. 
+* **You**: “Focus, Homer. We’ll stick with the name **rhdh**. Navigate to the OpenShift Console and login. by right-clicking the following URL and selecting `Open Link in New Tab`.”
 
-NOTE: Use the OpenShift URL and credentials from the landing page provided by your moderators.
+** *OpenShift Console URL:* {openshift_console_url}
+
+image::openshift_login.png[]
+
+* **You**: “You will be asked to choose between **kube:admin** or **rhsso**, choose *rhsso**.Here are the login details you’ll need:”
+
+** *OpenShift Admin User* {openshift_admin_user}
+** *OpenShift Admin Password* {openshift_admin_password}
 
 * **You**: "After you log-in, create an **OpenShift** project called `rhdh`."
 
